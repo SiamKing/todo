@@ -17,4 +17,12 @@ RSpec.describe Item, type: :model do
     expect(@invalid_item).to be_invalid
   end
 
+  it "can create list association" do
+    @list1 = List.create!(name: "Work List")
+    @item1 = Item.new(description: "Build out list functionality")
+    @item1.list = @list1
+    @item1.save!
+    expect(@item1.list).to eq(@list1)
+  end
+
 end
