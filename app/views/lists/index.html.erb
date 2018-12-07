@@ -3,7 +3,8 @@
 		<h1>Your Lists</h1>
 		<!--<input class="new-todo" placeholder="Make a new list" autofocus>-->
         <%= form_for(@list) do |f| %>
-            <%=  f.text_field :name, class: 'new-todo', placeholder: "Make a new list" %>
+            <%=  f.text_field :name, class: 'new-todo', placeholder: (@list.errors.full_messages_for(:name).first || "Enter a New List") %>
+			<%= f.submit style: "display: none", id: "create-list" %>
         <% end%>
 	</header>
 	<section class="main">
