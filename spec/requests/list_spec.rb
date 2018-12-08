@@ -76,6 +76,14 @@ describe "lists", type: :feature do
         #     save_and_open_page
         #     expect(page).to have_css("li.completed")
         # end
+
+        it "can delete an item from the list" do
+            visit list_path(@list1)
+            find("#item_1 input.destroy").click
+
+            expect(page).to have_no_content(/Soy Milk/)
+            expect(page).to have_content(/Pizza/)
+        end
     end
 
 end
