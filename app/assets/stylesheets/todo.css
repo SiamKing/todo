@@ -224,6 +224,8 @@ label[for='toggle-all'] {
 	color: #cc9a9a;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+	background: none;
+	border: 0;
 }
 
 .todo-list li .destroy:hover {
