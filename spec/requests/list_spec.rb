@@ -69,6 +69,13 @@ describe "lists", type: :feature do
 
             expect(page).to have_content(/Vodka/)
         end
+
+        # it "can check complete box to update item's status" do
+        #     visit list_path(@list1)
+        #     find("#edit_item_1 input[type='checkbox']").click
+        #     save_and_open_page
+        #     expect(page).to have_css("li.completed")
+        # end
     end
 
 end
