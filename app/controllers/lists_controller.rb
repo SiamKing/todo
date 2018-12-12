@@ -2,7 +2,7 @@ class ListsController < ApplicationController
     before_action :authentication_required
 
     def index
-        @lists = List.all
+        @lists = current_user.lists
         @list = List.new
         # raise @lists.inspect
     end
@@ -17,7 +17,7 @@ class ListsController < ApplicationController
         if @list.save
             redirect_to list_path(@list)
         else
-            @lists = List.all
+            @lists = current_user.lists
             render :index
         end
     end
