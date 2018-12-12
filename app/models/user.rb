@@ -5,5 +5,7 @@ class User < ApplicationRecord
     validates :email, :uniqueness => true
     validates :password, presence: true
     validates :password, length: {within: 8..16}
+
+    has_many :lists
     
 end
