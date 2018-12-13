@@ -3,9 +3,8 @@ require "rails_helper"
 RSpec.describe List, type: :model do
 
     before(:all) do
-        List.destroy_all
-        Item.destroy_all
-        @list1 = List.create!(name: "Shopping List")
+        create_valid_user('foo@bar.com', 'foobar33')
+        @list1 = List.create!(name: "Shopping List", user_id: @valid_user.id)
         @item1 = Item.create!(description: "Soy Milk")
     end
 

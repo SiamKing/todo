@@ -4,7 +4,8 @@ RSpec.describe Item, type: :model do
   before do
     List.destroy_all
     Item.destroy_all
-    @list = List.create!(name: "Shopping List")
+    create_valid_user('foo@bar.com', 'foobar33')
+    @list = List.create!(name: "Shopping List", user_id: @valid_user.id)
     @item = @list.items.create!(description: "Creamer", list_id: 1)
   end
 
@@ -18,7 +19,7 @@ RSpec.describe Item, type: :model do
   end
 
   it "can create list association" do
-    @list1 = List.create!(name: "Work List")
+    @list1 = List.create!(name: "Work List", user_id: @valid_user.id)
     @item1 = Item.new(description: "Build out list functionality")
     @item1.list = @list1
     @item1.save!
