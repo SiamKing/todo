@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :lists do
-    resources :items
+  resources :users, only: [:new, :create] do
+      resources :lists do
+        resources :items, only: [:new, :create, :update, :destroy]
+    end
   end
-  
-  resources :users, only: [:new, :create]
 
-  root "lists#index"
+  root "users#new"
 
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
