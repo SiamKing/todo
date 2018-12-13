@@ -14,8 +14,9 @@ class ListsController < ApplicationController
 
     def create
         @list = List.new(list_params)
+        @list.update(user_id: params[:user_id])
         if @list.save
-            redirect_to list_path(@list)
+            redirect_to user_list_path(current_user, @list)
         else
             @lists = current_user.lists
             render :index
