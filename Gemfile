@@ -55,6 +55,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'rack_session_access'
   gem 'launchy'
   gem 'poltergeist'
 end
