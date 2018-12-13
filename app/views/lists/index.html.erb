@@ -2,7 +2,7 @@
 	<header class="header">
 		<h1>Your Lists</h1>
 		<!--<input class="new-todo" placeholder="Make a new list" autofocus>-->
-        <%= form_for(@list) do |f| %>
+        <%= form_for [current_user, @list] do |f| %>
             <%=  f.text_field :name, class: 'new-todo', placeholder: (@list.errors.full_messages_for(:name).first || "Enter a New List") %>
 			<%= f.submit style: "display: none", id: "create-list" %>
         <% end%>
@@ -12,7 +12,7 @@
         <% @lists.each do |list| %>
 			<li>
 				<div class="view">
-					<label><%= link_to list.name, list_path(list) %></label>
+					<label><%= link_to list.name, user_list_path(current_user, list) %></label>
 				</div>
 			</li>
 		<% end %>
