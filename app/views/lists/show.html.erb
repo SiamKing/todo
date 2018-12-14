@@ -19,3 +19,8 @@
 	</footer>
 </section>
 
+<footer class="info">
+	<p>You're logged in as: <%= current_user.email %></p>
+	<p><%= link_to "Logout", logout_path %></p>
+</footer>
+
